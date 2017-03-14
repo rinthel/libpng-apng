@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 
 project(png)
 
-file(COPY ${CMAKE_SOURCE_DIR}/scripts/pnglibconf.h.prebuilt DESTINATION ${CMAKE_SOURCE_DIR})
-file(RENAME ${CMAKE_SOURCE_DIR}/pnglibconf.h.prebuilt ${CMAKE_SOURCE_DIR}/pnglibconf.h)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/scripts/pnglibconf.h.prebuilt DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
+file(RENAME ${CMAKE_CURRENT_SOURCE_DIR}/pnglibconf.h.prebuilt ${CMAKE_CURRENT_SOURCE_DIR}/pnglibconf.h)
 
 set(SOURCE_FILES
 	png.c
