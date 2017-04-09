@@ -5,10 +5,13 @@ project(png)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/scripts/pnglibconf.h.prebuilt DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
 file(RENAME ${CMAKE_CURRENT_SOURCE_DIR}/pnglibconf.h.prebuilt ${CMAKE_CURRENT_SOURCE_DIR}/pnglibconf.h)
 
-set(SOURCE_FILES
-	png.c
+set(HEADERS
 	png.h
 	pngconf.h
+	pnglibconf.h
+	)
+set(SOURCE_FILES
+	png.c
 	pngdebug.h
 	pngerror.c
 	pngget.c
@@ -31,4 +34,7 @@ set(SOURCE_FILES
 	arm/arm_init.c
 	)
 
-add_library(png ${SOURCE_FILES})
+add_library(png ${SOURCE_FILES} ${HEADERS})
+
+install(TARGETS png DESTINATION lib)
+install(FILES ${HEADERS} DESTINATION include)
