@@ -36,5 +36,9 @@ set(SOURCE_FILES
 
 add_library(png ${SOURCE_FILES} ${HEADERS})
 
+if (EMSCRIPTEN)
+  set_source_files_properties(${SOURCE_FILES} PROPERTIES COMPILE_FLAGS "-s USE_ZLIB=1")
+endif()
+
 install(TARGETS png DESTINATION lib)
 install(FILES ${HEADERS} DESTINATION include)
